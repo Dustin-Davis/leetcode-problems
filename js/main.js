@@ -32,3 +32,41 @@ var twoSum = function (nums, target) {
 // To determine how you "say" a digit string, split it into the minimal number of substrings
 // such that each substring contains exactly one unique digit.Then for each substring, say
 // the number of digits, then say the digit.Finally, concatenate every said digit.
+
+var countAndSay = function (n) {
+  var str = '1';
+  var tmp = '';
+  var last = '';
+  var count = 0;
+  var len = 0;
+
+  for (var i = 1; i < n; i++) {
+    tmp = '';
+    last = '';
+    count = 0;
+    len = str.length;
+
+    for (var j = 0; j < len; j++) {
+      if (last === '') {
+        last = str[j];
+        count = 1;
+        continue;
+      }
+      if (str[j] === last) {
+        count += 1;
+      } else {
+        tmp += '' + count + last;
+        last = str[j];
+        count = 1;
+      }
+    }
+
+    if (last) {
+      tmp += '' + count + last;
+    }
+
+    str = tmp;
+  }
+
+  return str;
+};
