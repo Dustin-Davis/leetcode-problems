@@ -73,3 +73,17 @@ var countAndSay = function (n) {
 
 // Given a positive integer, check whether it has alternating bits: namely,
 // if two adjacent bits will always have different values.
+
+var hasAlternatingBits = function (n) {
+  let str = (n).toString(2);
+  let curr = str[0]
+
+  for (let i = 1; i < str.length; i++) {
+    if (curr === str[i]) {
+      return false;
+    }
+    curr = str[i]
+  }
+  return true
+
+};
