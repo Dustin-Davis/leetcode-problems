@@ -87,3 +87,22 @@ var hasAlternatingBits = function (n) {
   return true
 
 };
+
+
+// Given a roman numeral, convert it to an integer.
+var romanToInt = function (s) {
+  let result = 0,
+    curr, prev = 0;
+
+  for (const char of s.split("").reverse()) {
+    curr = values.get(char);
+    if (curr >= prev) {
+      result += curr;
+    } else {
+      result -= curr;
+    }
+    prev = curr;
+  }
+  return result;
+
+};
