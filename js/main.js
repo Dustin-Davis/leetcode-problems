@@ -106,3 +106,10 @@ var romanToInt = function (s) {
   return result;
 
 };
+
+
+// Given an integer x, return true if x is palindrome integer.
+var isPalindrome = function (x) {
+  var numString = x.toString();
+  return numString.split("").reverse().join("") === numString;
+};
